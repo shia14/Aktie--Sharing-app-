@@ -40,10 +40,10 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
   Future<void> _initializeServices() async {
     final discoveryService = context.read<DiscoveryService>();
     final transferService = context.read<TransferService>();
-    
+
     await discoveryService.initialize();
     await transferService.initialize();
-    
+
     discoveryService.startDiscovery();
   }
 
@@ -56,25 +56,25 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
           children: [
             // Header with user info and close button
             const UserHeader(),
-            
+
             // Main content area
             Expanded(
               child: Consumer<DiscoveryService>(
                 builder: (context, discoveryService, child) {
                   final devices = discoveryService.discoveredDevices;
-                  
+
                   if (devices.isEmpty) {
                     return _buildEmptyState();
                   }
-                  
+
                   return DeviceList(devices: devices);
                 },
               ),
             ),
-            
+
             // Help text at bottom
             _buildHelpText(),
-            
+
             const SizedBox(height: 20),
           ],
         ),
@@ -89,7 +89,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           const Spacer(),
-          Text(
+          const Text(
             'No People Found',
             style: TextStyle(
               color: Colors.white,
@@ -125,7 +125,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
+                const Text(
                   'Can\'t see people nearby?',
                   style: TextStyle(
                     color: Colors.white,

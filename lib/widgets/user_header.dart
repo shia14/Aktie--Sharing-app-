@@ -26,7 +26,7 @@ class _UserHeaderState extends State<UserHeader> {
 
   Future<void> _editUserName() async {
     final controller = TextEditingController(text: _userName);
-    
+
     final result = await showDialog<String>(
       context: context,
       builder: (context) => AlertDialog(
@@ -80,7 +80,7 @@ class _UserHeaderState extends State<UserHeader> {
             child: Container(
               width: 50,
               height: 50,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 shape: BoxShape.circle,
                 gradient: LinearGradient(
                   colors: [
@@ -102,7 +102,7 @@ class _UserHeaderState extends State<UserHeader> {
             ),
           ),
           const SizedBox(width: 12),
-          
+
           // User name
           Expanded(
             child: GestureDetector(
@@ -129,7 +129,7 @@ class _UserHeaderState extends State<UserHeader> {
               ),
             ),
           ),
-          
+
           // Close button
           IconButton(
             onPressed: () {

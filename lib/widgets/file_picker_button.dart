@@ -72,52 +72,52 @@ class FilePickerButton extends StatelessWidget {
             ),
             const SizedBox(height: 20),
             ...devices.map((device) => ListTile(
-              contentPadding: EdgeInsets.zero,
-              leading: Container(
-                width: 48,
-                height: 48,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  gradient: LinearGradient(
-                    colors: [
-                      Color(0xFF30D158),
-                      Color(0xFF32ADE6),
-                    ],
+                  contentPadding: EdgeInsets.zero,
+                  leading: Container(
+                    width: 48,
+                    height: 48,
+                    decoration: const BoxDecoration(
+                      shape: BoxShape.circle,
+                      gradient: LinearGradient(
+                        colors: [
+                          Color(0xFF30D158),
+                          Color(0xFF32ADE6),
+                        ],
+                      ),
+                    ),
+                    child: Center(
+                      child: Text(
+                        device.name[0].toUpperCase(),
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 20,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                    ),
                   ),
-                ),
-                child: Center(
-                  child: Text(
-                    device.name[0].toUpperCase(),
+                  title: Text(
+                    device.name,
                     style: const TextStyle(
                       color: Colors.white,
-                      fontSize: 20,
-                      fontWeight: FontWeight.w600,
+                      fontSize: 16,
+                      fontWeight: FontWeight.w500,
                     ),
                   ),
-                ),
-              ),
-              title: Text(
-                device.name,
-                style: const TextStyle(
-                  color: Colors.white,
-                  fontSize: 16,
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
-              onTap: () async {
-                Navigator.pop(context);
-                await transferService.sendFile(filePath, device);
-                if (context.mounted) {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(
-                      content: Text('Sending file to ${device.name}'),
-                      backgroundColor: const Color(0xFF0A84FF),
-                      behavior: SnackBarBehavior.floating,
-                    ),
-                  );
-                }
-              },
-            )),
+                  onTap: () async {
+                    Navigator.pop(context);
+                    await transferService.sendFile(filePath, device);
+                    if (context.mounted) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text('Sending file to ${device.name}'),
+                          backgroundColor: const Color(0xFF0A84FF),
+                          behavior: SnackBarBehavior.floating,
+                        ),
+                      );
+                    }
+                  },
+                )),
           ],
         ),
       ),

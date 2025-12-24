@@ -33,15 +33,16 @@ class _DeviceCard extends StatelessWidget {
   Future<void> _sendFile(BuildContext context) async {
     try {
       final result = await FilePicker.platform.pickFiles();
-      
+
       if (result != null && result.files.single.path != null) {
         final transferService = context.read<TransferService>();
         await transferService.sendFile(result.files.single.path!, device);
-        
+
         if (context.mounted) {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
-              content: Text('Sending ${result.files.single.name} to ${device.name}'),
+              content:
+                  Text('Sending ${result.files.single.name} to ${device.name}'),
               backgroundColor: const Color(0xFF0A84FF),
               behavior: SnackBarBehavior.floating,
             ),
@@ -79,7 +80,7 @@ class _DeviceCard extends StatelessWidget {
                 Container(
                   width: 56,
                   height: 56,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     shape: BoxShape.circle,
                     gradient: LinearGradient(
                       colors: [
@@ -92,7 +93,9 @@ class _DeviceCard extends StatelessWidget {
                   ),
                   child: Center(
                     child: Text(
-                      device.name.isNotEmpty ? device.name[0].toUpperCase() : 'D',
+                      device.name.isNotEmpty
+                          ? device.name[0].toUpperCase()
+                          : 'D',
                       style: const TextStyle(
                         color: Colors.white,
                         fontSize: 24,
@@ -102,7 +105,7 @@ class _DeviceCard extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(width: 16),
-                
+
                 // Device info
                 Expanded(
                   child: Column(
@@ -127,7 +130,7 @@ class _DeviceCard extends StatelessWidget {
                     ],
                   ),
                 ),
-                
+
                 // Arrow icon
                 Icon(
                   Icons.arrow_forward_ios,
