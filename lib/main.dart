@@ -25,7 +25,7 @@ class AktieApp extends StatelessWidget {
         theme: ThemeData(
           brightness: Brightness.dark,
           scaffoldBackgroundColor: const Color(0xFF1C1C1E),
-          textTheme: GoogleFonts.sfProTextTextTheme(
+          textTheme: GoogleFonts.interTextTheme(
             ThemeData.dark().textTheme,
           ),
           colorScheme: const ColorScheme.dark(
