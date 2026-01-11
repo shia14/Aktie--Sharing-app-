@@ -5,7 +5,6 @@ import '../services/transfer_service.dart';
 import '../widgets/user_header.dart';
 import '../widgets/device_list.dart';
 import '../widgets/file_picker_button.dart';
-import '../models/device.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});

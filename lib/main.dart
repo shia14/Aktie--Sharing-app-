@@ -30,7 +30,6 @@ class AktieApp extends StatelessWidget {
           ),
           colorScheme: const ColorScheme.dark(
             primary: Color(0xFF0A84FF),
-            background: Color(0xFF1C1C1E),
             surface: Color(0xFF2C2C2E),
           ),
         ),
